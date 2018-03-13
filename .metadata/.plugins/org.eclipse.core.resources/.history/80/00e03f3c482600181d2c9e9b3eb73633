@@ -1,0 +1,18 @@
+import java.applet.Applet;
+import java.awt.Graphics;
+
+public class Haupt extends Applet implements Runnable{
+
+	private static final long serialVersionUID = -3785521478255739587L;
+
+	public void init(){
+		setSize(100,200);
+	}
+	public void start(){
+		
+	}
+	
+	public void run() {
+		
+	}
+}

@@ -1,0 +1,12 @@
+package Manager;
+
+import java.applet.Applet;
+
+public class Fenstermanager {
+	private int hoee;
+	private int breite;
+	
+	public Fenstermanager(Applet applet){
+		
+	}
+}

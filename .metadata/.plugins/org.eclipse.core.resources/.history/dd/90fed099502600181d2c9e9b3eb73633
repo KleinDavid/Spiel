@@ -1,0 +1,29 @@
+package Manager;
+
+import java.applet.Applet;
+import java.awt.Color;
+
+public class Fenstermanager {
+	private int hoee;
+	private int breite;
+	private Haupt applet;
+	
+	public Fenstermanager(Applet applet){
+		this.applet = applet;
+		hoee = applet.getHeight();
+		breite = applet.getWidth();
+	}
+	
+	public void update(){
+		if(hoee != applet.getHeight() || breite != applet.getWidth()){
+
+			Screen = createImage(getWidth(), getHeight());
+			ScreenG = Screen.getGraphics();
+			
+			ScreenG.setColor(Color.black);
+			ScreenG.fillRect(0, 0, breite, (hoee - (breite / 2)) / 2);
+			ScreenG.fillRect(0, breite/2 + ((hoee - (breite / 2)) / 2), breite, (hoee - (breite / 2)) / 2);
+			
+		}
+	}
+}

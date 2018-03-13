@@ -1,0 +1,15 @@
+import java.applet.Applet;
+import java.awt.Graphics;
+
+public class Haupt extends Applet implements Runnable{
+	public void init(Graphics g){
+		
+	}
+	public void start(){
+		
+	}
+	
+	public void run() {
+		
+	}
+}

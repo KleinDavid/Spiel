@@ -12,3 +12,6 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2018-03-12 23:37:41.921
+!MESSAGE No repository found at https://sourceforge.net/p/lejos/wiki/Installing%2520the%2520Eclipse%2520plugin/.

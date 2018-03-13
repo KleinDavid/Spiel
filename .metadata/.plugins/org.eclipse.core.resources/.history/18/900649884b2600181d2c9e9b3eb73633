@@ -1,0 +1,48 @@
+import java.applet.Applet;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+
+public class Haupt extends Applet implements Runnable{
+
+	private static final long serialVersionUID = -3785521478255739587L;
+	Image Screan;
+	Graphics ScreanG;
+	Thread thread = new Thread(this);
+	
+	public void init(){
+		setSize(1000,500);
+		Screan = createImage(getWidth(), getHeight());
+		ScreanG = Screan.getGraphics();
+	}
+	
+	@Override
+	public void start() {
+		thread.start();
+	}
+	
+	public void run() {
+		while(true){
+			try {
+				thread.sleep(17);
+			} catch (InterruptedException e) {
+			}
+			checkFenster();
+		}
+	}
+	
+	public void update(Graphics g) {
+		paint(g);
+	}
+
+	public void paint(Graphics g) {
+
+		g.drawImage(Screan, 0, 0, this);
+	
+	private void checkFenster(){
+		int hoee = getHeight();
+		int breite = getWidth();
+		ScreanG.setColor(Color.black);
+		ScreanG.fillRect(0, 0, breite, (hoee-(breite/2))/2);
+	}
+}

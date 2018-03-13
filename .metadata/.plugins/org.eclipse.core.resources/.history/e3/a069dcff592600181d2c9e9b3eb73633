@@ -1,0 +1,70 @@
+package Manager;
+
+import java.applet.Applet;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+
+public class Fenstermanager {
+	private int hoee;
+	private int breite;
+
+	private int hoeeSpielfeld;
+	private int breiteSpielfeld;
+
+	private Position eckeOL;
+	private Position eckeUL;
+	private Position eckeOR;
+	private Position eckeUR;
+
+	private Haupt applet;
+	private Image Screen;
+	private Graphics ScreenG;
+
+	public Fenstermanager(Haupt applet) {
+		this.applet = applet;
+		hoee = applet.getHeight();
+		breite = applet.getWidth();
+		hoeeSpielfeld = hoee;
+		breiteSpielfeld = breite;
+		eckeOL = new Position(0, 0);
+		eckeUL = new Position(hoee, 0);
+		eckeOR = new Position(0, breite);
+		eckeUR = new Position(hoee, breite);
+
+		Screen = applet.getScreen();
+		ScreenG = applet.getScreenG();
+	}
+
+	public void update() {
+		if (0 >= applet.getHeight() || 0 >= applet.getWidth()) {
+			if (0 >= applet.getHeight()) {
+				applet.setSize(breite, 1);
+			} else if (0 >= applet.getWidth()) {
+				applet.setSize(hoee, 1);
+			}
+		} else if (hoee != applet.getHeight() || breite != applet.getWidth()) {
+
+			hoee = applet.getHeight();
+			breite = applet.getWidth();
+
+			Screen = applet.createImage(applet.getWidth(), applet.getHeight());
+			ScreenG = Screen.getGraphics();
+			if (hoee > breite / 2) {
+				hoeeSpielfeld = breite / 2;
+				eckeOL.setPosition((hoee - (breite / 2)) / 2, 0);
+				ScreenG.setColor(Color.black);
+				ScreenG.fillRect(0, 0, breite, eckeOL.getX());
+				ScreenG.fillRect(0, breite / 2 + ((hoee - (breite / 2)) / 2), breite, (hoee - (breite / 2)) / 2);
+			} else if (hoee < breite / 2) {
+				breiteSpielfeld = hoee * 2;
+				ScreenG.setColor(Color.black);
+				ScreenG.fillRect(0, 0, (breite - hoee * 2) / 2, hoee);
+				ScreenG.fillRect((breite - hoee * 2) / 2 + hoee * 2, 0, (breite - hoee * 2) / 2, hoee);
+			}
+			applet.setScreen(Screen);
+			applet.setScreenG(ScreenG);
+		}
+	}
+
+}

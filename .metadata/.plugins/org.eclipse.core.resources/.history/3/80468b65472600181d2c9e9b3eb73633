@@ -1,0 +1,10 @@
+import java.applet.Applet;
+
+public class Haupt extends Applet{
+	public void init(){
+		
+	}
+	public void start(){
+		
+	}
+}
